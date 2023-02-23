@@ -1,0 +1,472 @@
+$fontFamily: 'Barlow Semi Condensed', sans-serif;
+
+body, button {
+    letter-spacing: 2px;
+}
+body {
+	color: #fff;
+	padding: 4% 5% 2%;
+	font-family: $fontFamily !important;
+    text-transform: uppercase;
+    background: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+}
+header {
+	padding: 2%;
+	margin: auto;
+    display: flex;
+	max-width: 600px;
+    border-radius: 6px;
+    justify-content: space-between;
+    border: 3px solid hsl(217, 16%, 45%);
+
+    .logo img {
+	    max-width: 95px;
+	}
+    .score {
+    	width: 100%;
+    	padding: 2%;
+	    max-width: 80px;
+	    background: #fff;
+	    border-radius: 5px;
+	    text-align: center;
+	    align-self: center;
+
+	    p {
+		    margin: 0;
+		}
+	    .score-text {
+		    color: hsl(229, 64%, 46%);
+		}
+		.score-value {
+		    color: hsl(229, 25%, 31%);
+		    font-size: 3rem;
+		}
+	}
+}
+main > {
+	#game, #pick, #result {
+		display:none;
+	}
+}
+#game {
+	display: grid;
+	padding: 8% 0;
+	text-align: center;
+	max-width: 620px;
+    margin: auto;
+	background: url(../images/bg-pentagon.svg);
+    background: {
+    	repeat: no-repeat;
+    	position: center;
+    }
+    grid-template-rows: 130px 130px 130px;
+
+    section {
+		display: flex;
+    }
+    section.first {
+	    grid-column: 1 / span 2;
+	    margin-top: -45px;
+	}
+}
+#game-screen {
+	margin: auto;
+}
+body.game-pick { 
+	#rules {
+	    margin-left: auto;
+	}
+	#game-screen {
+	    max-width: 750px;
+	    margin: auto;
+	}
+}
+section.second {
+    margin-top: -45px;
+}
+section.third {
+    margin-top: 22px;
+    position: relative;
+}
+div.scissors, div.paper, div.rock, div.lizard, div.spock {
+	max-width: 110px;
+    max-height: 111px;
+    /* display: inline-flex; */
+    /* align-self: center; */
+    width: 100%;
+    margin: auto;
+    cursor: pointer;
+    border-radius: 50%;
+}
+div.scissors {
+    background: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+    box-shadow: inset 0px -3px 0px 0px hsl(40deg 82% 37%), 0 3px 3px 1px hsl(229deg 15% 14%);
+}
+div.paper {
+    background: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+    box-shadow: inset 0px -3px 0px 0px hsl(230deg 75% 50%), 0 3px 3px 1px hsl(229deg 15% 14%);
+}
+div.rock {
+    background: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+    box-shadow: inset 0px -3px 0px 0px hsl(349deg 72% 39%), 0 3px 3px 1px hsl(229deg 15% 14%);
+}
+div.lizard {
+    background: linear-gradient(hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+    box-shadow: inset 0px -3px 0px 0px hsl(261deg 63% 47%), 0 3px 3px 1px hsl(229deg 15% 14%);
+}
+div.spock {
+    background: linear-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+    box-shadow: inset 0px -3px 0px 0px hsl(189deg 62% 41%), 0 3px 3px 1px hsl(229deg 15% 14%);
+}
+#game div.rock {
+	right: 45%;
+	position: absolute;
+}
+#game div.lizard {
+	left: 45%;
+	position: absolute;
+}
+p.scissors {
+	background: url(../images/icon-scissors.svg);
+}
+p.paper {
+	background: url(../images/icon-paper.svg);
+}
+p.rock {
+	background: url(../images/icon-rock.svg);
+}
+p.lizard {
+	background: url(../images/icon-lizard.svg);
+}
+p.spock {
+	background: url(../images/icon-spock.svg);
+}
+p.scissors, p.paper, p.rock, p.lizard, p.spock {
+	width: 80px;
+    height: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    background-size: 45%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: inset 0px 4px 0px 0px hsl(229deg 11% 79%);
+}
+#pick {
+    display: grid;
+    grid-template-columns: 40% 40%;
+    gap: 20%;
+    padding: 15% 0;
+
+    > section {
+    	text-align: center;
+
+    	.selected div {
+    		cursor: unset;
+    		padding: 0.1%;
+    	}
+    	> div {
+    		padding: 0.1%;
+    	}
+    }
+}
+.blank {
+	p {
+	    width: 80px;
+	    height: 80px;
+	    background: hsl(229deg 58% 17%);
+	    margin-left: auto;
+	    margin-right: auto;
+	    border-radius: 50%;
+	}	
+}
+#pick .selected {
+	position: relative;
+
+	div {
+		z-index: 9;
+    	position: relative;
+	}
+	span {
+		position: absolute;
+	    left: 50%;
+	    top: 50%;
+	    border-radius: 50%;
+	    display: block;
+	    transform: translate(-50%, -50%);
+	    background: radial-gradient(hsla(229deg, 10%, 21%, 0.29) 20%, hsl(229deg 10% 21% / 29%) 20%, hsl(229deg 10% 26% / 29%) 40%, hsl(229deg 16% 6% / 9%) 40%, hsl(229deg 16% 39% / 9%) 60%, hsl(229deg 5% 6% / 5%) 60%, hsl(229deg 5% 10% / 5%) 80%);
+	}
+}
+.computer > div:not(.blank) {
+    z-index: 9;
+    position: relative;
+}
+.game-pick .reset {
+    display: none;
+}
+#result {
+    margin: auto;
+	z-index: 9;
+    text-align: center;
+
+    h1 {
+	    font-size: 3rem;
+		margin-bottom: 10px;
+	}
+}
+
+button {
+	cursor: pointer;
+	font-size: 1rem;
+    border-radius: 7px;
+    font-family: $fontFamily;
+    text-transform: uppercase;
+}
+button.play-again {
+	border: none;
+    min-width: 180px;
+    padding: 12px 20px;
+    color: hsl(229, 25%, 31%);
+}
+footer {
+    margin-top: 45px;
+
+	button {
+	    background: transparent;
+	    border: 1px solid #fff;
+	    color: #fff;
+	    min-width: 110px;
+	    padding: 10px 20px;
+	}
+	.attribution {
+		font-size: 11px;
+		text-align: center;
+		margin-top: 50px;
+
+		a {
+			color: hsl(228, 45%, 44%);
+		}
+	}	
+}
+
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+      padding: 3% 0;
+  left: 0;
+  top: 0;
+	z-index: 9;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-content {
+	background-color: #fefefe;
+	margin: auto;
+	padding: 30px;
+	border: 1px solid #888;
+
+	h1 {
+		margin: 0;
+		color: hsl(229, 25%, 31%);
+	}
+}
+#modal-body img {
+    display: block;
+    margin: auto;
+	width: 100%;
+    padding: 30px 0;
+}
+
+/* The Close Button */
+.close {
+/*
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+*/
+	
+	cursor: pointer;
+	margin-top: 10px;
+}
+
+/*
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+*/
+
+
+@media (max-width:768px) {
+	#game {
+    	padding: 15% 0;
+    }
+	.modal-content {
+		width: 50%;
+	}
+	footer button {
+	    display: block;
+	    margin: 0 auto 15px;
+	}	
+}
+@media (max-width: 600px) {
+	#pick .selected span {
+	    width: 184px;
+	    height: 170px;
+	}
+}
+@media (min-width: 601px) and (max-width: 768px) {
+	#pick .selected span {
+		width: 278px;
+    	height: 270px;
+	}
+}
+@media (max-width: 475px) {
+	#game {
+		background-size: 90%;
+	}
+	.modal {
+		padding: 0;
+	}
+	.modal-content {
+	    width: 100%;
+	    box-sizing: border-box;
+	    margin: 0;
+	}
+	.close.desk {
+		display: none;
+	}
+	#modal-header h1 {
+	    text-align: center;
+	}
+	#modal-footer {
+	    text-align: center;
+	    margin-top: 20px;
+	}
+}
+@media (min-width: 476px) {
+	.close.mobile {
+		display: none;
+	}
+	.close {
+		float: right;
+	}
+	.modal-content h1 {
+		float: left;
+	}
+}
+@media (min-width: 360px) and (max-width: 475px) {
+	section.first {
+	    margin-top: -28px !important;
+	}
+	section.second.left {
+	    position: relative;
+	    left: -40px;
+	    margin-top: -32px;
+	}
+	section.second.right {
+	    position: relative;
+	    right: -40px;
+	    margin-top: -32px;
+	}
+	section.third.left {
+	    left: -40px;
+	    margin-top: 23px;
+	}
+	section.third.right {
+	    right: -40px;
+	    margin-top: 23px;
+	}
+}
+@media (max-width: 359px) {
+	section.first {
+	    margin-top: -5px !important;
+	}
+	section.second.left {
+	    position: relative;
+	    left: -28px;
+	    margin-top: -32px;
+	}
+	section.second.right {
+	    position: relative;
+	    right: -28px;
+	    margin-top: -32px;
+	}
+	section.third.left {
+	    left: -55px;
+	    margin-top: 5px;
+	}
+	section.third.right {
+	    right: -55px;
+	    margin-top: 5px;
+	}
+}
+@media (min-width: 476px) and (max-width: 575px) {
+	section.second {
+		position: relative;
+	}
+	section.second.left {
+	    left: -25px;
+	}
+	section.second.right {
+	    right: -25px;
+	}
+	section.third.left {
+	    left: -25px;
+	}
+	section.third.right {
+	    right: -25px;
+	}
+}
+@media (min-width:769px) {
+	#game-screen {
+	    position: relative;
+	}
+	#pick section {
+	    display: flex;
+	    flex-direction: column;
+
+	    p {
+		    order: 1;
+		    font-size: 1.3rem;
+		}
+		.selected {
+		    order: 2;
+
+		    div {
+			    max-width: 160px;
+			    max-height: 160px;
+			}
+		    p {
+			    width: 120px;
+			    height: 120px;
+			    background-size: 52%;
+			}
+			span {
+				width: 450px;
+	    		height: 410px;
+			}
+		}
+	}
+	#result {
+	    position: absolute;
+	    left: 37%;
+	    top: 35%;
+	}
+	.modal-content {
+		width: 30%;
+	}
+	footer section {
+	    display: flex;
+	    justify-content: space-between;
+	}
+}

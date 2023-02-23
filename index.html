@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <meta name="description" content="Frontend Mentor | Rock, Paper, Scissors solution">
+    <meta name="keywords" content="frontend projects, SASS, CSS, HTML, javascript, bootstrap">
+    <meta name="author" content="Merlin Ponnachan">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="stylesheet" type="text/css" href="./css/styles.css"> <!-- custom style -->
+    <script type="text/javascript" src="./js/custom.js"></script> <!-- custom script -->
+    <!-- Font family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
+    <title>Frontend Mentor | Rock, Paper, Scissors</title>
+</head>
+<body>
+    <header>
+        <section class="logo">
+            <img src="./images/logo-bonus.svg" alt="logo">
+        </section>
+        <section class="score">
+            <p class="score-text">Score</p>
+            <p class="score-value"></p>
+        </section>
+    </header>
+    <main>
+        <div id="game-screen"></div>
+        <div id="game">
+            <section class="first">
+                <div class="scissors">
+                    <p class="scissors"></p>
+                </div>
+            </section>
+            <section class="second left">
+                <div class="spock">
+                    <p class="spock"></p>
+                </div>
+            </section>
+            <section class="second right">
+                <div class="paper">
+                    <p class="paper"></p>
+                </div>
+            </section>
+            <section class="third left">
+                <div class="lizard">
+                    <p class="lizard"></p>
+                </div>
+            </section>
+            <section class="third right">
+                <div class="rock">
+                    <p class="rock"></p>
+                </div>
+            </section>
+        </div>
+        <div id="pick">
+            <section class="you">
+                <div class="selected"></div>
+                <p>You picked</p>
+            </section>
+            <section class="computer">
+                <!-- <div class="blank">
+                    <p></p>
+                </div> -->
+                <div class="selected"></div>
+                <p>The house picked</p>
+            </section>
+        </div>
+        <div id="result">
+            <h1 class="who-wins"></h1>
+            <button class="play-again">Play Again</button>
+        </div>
+    </main>
+    <footer>
+        <div id="rules-cont" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div id="modal-header">
+                    <h1>Rules</h1>
+                    <img src="./images/icon-close.svg" alt="close" class="close desk">  
+                </div>
+                <div id="modal-body">
+                    <img src="./images/image-rules-bonus.svg" alt="image-rules-bonus">
+                </div>
+                <div id="modal-footer">
+                    <img src="./images/icon-close.svg" alt="close" class="close mobile">  
+                </div>
+            </div>
+        </div>
+
+        <section>
+            <button class="reset">Reset</button>
+            <button class="rules" id="rules">Rules</button>
+        </section>
+        <div class="attribution">
+            Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+            Coded by <a href="https://github.com/merlin1101/rock-paper-scissor-game">Merlin</a>.
+        </div>
+    </footer>
+</body>
+</html>

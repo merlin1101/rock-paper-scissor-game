@@ -1,0 +1,441 @@
+body, button {
+  letter-spacing: 2px;
+}
+
+body {
+  color: #fff;
+  padding: 4% 5% 2%;
+  font-family: "Barlow Semi Condensed", sans-serif !important;
+  text-transform: uppercase;
+  background: radial-gradient(hsl(214deg, 47%, 23%), hsl(237deg, 49%, 15%));
+}
+
+header {
+  padding: 2%;
+  margin: auto;
+  display: flex;
+  max-width: 600px;
+  border-radius: 6px;
+  justify-content: space-between;
+  border: 3px solid hsl(217deg, 16%, 45%);
+}
+header .logo img {
+  max-width: 95px;
+}
+header .score {
+  width: 100%;
+  padding: 2%;
+  max-width: 80px;
+  background: #fff;
+  border-radius: 5px;
+  text-align: center;
+  align-self: center;
+}
+header .score p {
+  margin: 0;
+}
+header .score .score-text {
+  color: hsl(229deg, 64%, 46%);
+}
+header .score .score-value {
+  color: hsl(229deg, 25%, 31%);
+  font-size: 3rem;
+}
+
+main > #game, main > #pick, main > #result {
+  display: none;
+}
+
+#game {
+  display: grid;
+  padding: 8% 0;
+  text-align: center;
+  max-width: 620px;
+  margin: auto;
+  background: url(../images/bg-pentagon.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  grid-template-rows: 130px 130px 130px;
+}
+#game section {
+  display: flex;
+}
+#game section.first {
+  grid-column: 1/span 2;
+  margin-top: -45px;
+}
+#game section.second {
+  margin-top: -45px;
+  position: relative;
+}
+#game section.third {
+  margin-top: 22px;
+  position: relative;
+}
+#game div.rock {
+  right: 45%;
+  position: absolute;
+}
+#game div.lizard {
+  left: 45%;
+  position: absolute;
+}
+
+#game-screen {
+  margin: auto;
+}
+
+body.game-pick #rules {
+  margin-left: auto;
+}
+body.game-pick #game-screen {
+  max-width: 750px;
+}
+
+div.scissors, div.paper, div.rock, div.lizard, div.spock {
+  max-width: 110px;
+  max-height: 111px;
+  width: 100%;
+  margin: auto;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+div.scissors {
+  background: linear-gradient(hsl(39deg, 89%, 49%), hsl(40deg, 84%, 53%));
+  box-shadow: inset 0px -3px 0px 0px hsl(40deg, 82%, 37%), 0 3px 3px 1px hsl(229deg, 15%, 14%);
+}
+
+div.paper {
+  background: linear-gradient(hsl(230deg, 89%, 62%), hsl(230deg, 89%, 65%));
+  box-shadow: inset 0px -3px 0px 0px hsl(230deg, 75%, 50%), 0 3px 3px 1px hsl(229deg, 15%, 14%);
+}
+
+div.rock {
+  background: linear-gradient(hsl(349deg, 71%, 52%), hsl(349deg, 70%, 56%));
+  box-shadow: inset 0px -3px 0px 0px hsl(349deg, 72%, 39%), 0 3px 3px 1px hsl(229deg, 15%, 14%);
+}
+
+div.lizard {
+  background: linear-gradient(hsl(261deg, 73%, 60%), hsl(261deg, 72%, 63%));
+  box-shadow: inset 0px -3px 0px 0px hsl(261deg, 63%, 47%), 0 3px 3px 1px hsl(229deg, 15%, 14%);
+}
+
+div.spock {
+  background: linear-gradient(hsl(189deg, 59%, 53%), hsl(189deg, 58%, 57%));
+  box-shadow: inset 0px -3px 0px 0px hsl(189deg, 62%, 41%), 0 3px 3px 1px hsl(229deg, 15%, 14%);
+}
+
+p.scissors {
+  background: url(../images/icon-scissors.svg);
+}
+
+p.paper {
+  background: url(../images/icon-paper.svg);
+}
+
+p.rock {
+  background: url(../images/icon-rock.svg);
+}
+
+p.lizard {
+  background: url(../images/icon-lizard.svg);
+}
+
+p.spock {
+  background: url(../images/icon-spock.svg);
+}
+
+p.scissors, p.paper, p.rock, p.lizard, p.spock {
+  width: 80px;
+  height: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  background-size: 45%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: inset 0px 4px 0px 0px hsl(229deg, 11%, 79%);
+}
+
+#pick {
+  display: grid;
+  grid-template-columns: 40% 40%;
+  gap: 20%;
+  padding: 15% 0;
+}
+#pick > section {
+  text-align: center;
+}
+#pick > section .selected div {
+  cursor: unset;
+  padding: 0.1%;
+}
+#pick > section > div {
+  padding: 0.1%;
+}
+
+.blank p {
+  width: 80px;
+  height: 80px;
+  background: hsl(229deg, 58%, 17%);
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+}
+
+#pick .selected {
+  position: relative;
+}
+#pick .selected div {
+  z-index: 9;
+  position: relative;
+}
+#pick .selected span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  display: block;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(hsla(229deg, 10%, 21%, 0.29) 20%, hsla(229deg, 10%, 21%, 0.29) 20%, hsla(229deg, 10%, 26%, 0.29) 40%, hsla(229deg, 16%, 6%, 0.09) 40%, hsla(229deg, 16%, 39%, 0.09) 60%, hsla(229deg, 5%, 6%, 0.05) 60%, hsla(229deg, 5%, 10%, 0.05) 80%);
+}
+
+.computer > div:not(.blank) {
+  z-index: 9;
+  position: relative;
+}
+
+.game-pick .reset {
+  display: none;
+}
+
+#result {
+  margin: auto;
+  z-index: 9;
+  text-align: center;
+}
+#result h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+button {
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  border-radius: 7px;
+  text-transform: uppercase;
+}
+
+button.play-again {
+  border: none;
+  min-width: 180px;
+  padding: 12px 20px;
+  color: hsl(229deg, 25%, 31%);
+}
+
+footer {
+  margin-top: 45px;
+}
+footer button {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  min-width: 110px;
+  padding: 10px 20px;
+}
+footer .attribution {
+  font-size: 11px;
+  text-align: center;
+  margin-top: 50px;
+}
+footer .attribution a {
+  color: hsl(228deg, 45%, 44%);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding: 3% 0;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 30px;
+  border: 1px solid #888;
+  border-radius: 15px;
+}
+.modal-content h1 {
+  margin: 0;
+  color: hsl(229deg, 25%, 31%);
+}
+
+#modal-body img {
+  display: block;
+  margin: auto;
+  width: 100%;
+  padding: 30px 0;
+}
+
+.close {
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  #game {
+    padding: 15% 0;
+  }
+  .modal-content {
+    width: 50%;
+  }
+  footer button {
+    display: block;
+    margin: 0 auto 15px;
+  }
+}
+@media (max-width: 600px) {
+  #pick .selected span {
+    width: 184px;
+    height: 170px;
+  }
+}
+@media (min-width: 601px) and (max-width: 768px) {
+  #pick .selected span {
+    width: 278px;
+    height: 270px;
+  }
+}
+@media (max-width: 475px) {
+  #game {
+    background-size: 90%;
+  }
+  .modal {
+    padding: 0;
+  }
+  .modal-content {
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+  }
+  .close.desk {
+    display: none;
+  }
+  #modal-footer {
+    margin-top: 20px;
+  }
+}
+@media (min-width: 476px) {
+  .close.mobile {
+    display: none;
+  }
+  .close {
+    float: right;
+  }
+  .modal-content h1 {
+    float: left;
+  }
+}
+@media (min-width: 360px) and (max-width: 475px) {
+  section.first {
+    margin-top: -28px !important;
+  }
+  section.second.left, section.third.left {
+    left: -40px;
+  }
+  section.second.left, section.second.right {
+    margin-top: -32px;
+  }
+  section.second.right, section.third.right {
+    right: -40px;
+  }
+  section.third.left, section.third.right {
+    margin-top: 23px;
+  }
+}
+@media (max-width: 359px) {
+  section.first {
+    margin-top: -5px !important;
+  }
+  section.second.left, section.second.right {
+    margin-top: -32px;
+  }
+  section.second.left {
+    left: -28px;
+  }
+  section.second.right {
+    right: -28px;
+  }
+  section.third.left, section.third.right {
+    margin-top: 5px;
+  }
+  section.third.left {
+    left: -55px;
+  }
+  section.third.right {
+    right: -55px;
+  }
+}
+@media (min-width: 476px) and (max-width: 575px) {
+  section.second.left, section.third.left {
+    left: -25px;
+  }
+  section.second.right, section.third.right {
+    right: -25px;
+  }
+}
+@media (min-width: 769px) {
+  #game-screen {
+    position: relative;
+  }
+  #pick section {
+    display: flex;
+    flex-direction: column;
+  }
+  #pick section p {
+    order: 1;
+    font-size: 1.3rem;
+  }
+  #pick section .selected {
+    order: 2;
+  }
+  #pick section .selected div {
+    max-width: 160px;
+    max-height: 160px;
+  }
+  #pick section .selected p {
+    width: 120px;
+    height: 120px;
+    background-size: 52%;
+  }
+  #pick section .selected span {
+    width: 450px;
+    height: 410px;
+  }
+  #result {
+    position: absolute;
+    left: 37%;
+    top: 35%;
+  }
+  .modal-content {
+    width: 30%;
+  }
+  footer section {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
